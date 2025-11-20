@@ -8,4 +8,4 @@ print(f"Список всех жарких дней (выше 28°C): {hot_days_
 print(f"Самая высокая температура среди жарких дней: {max(hot_days_list)}°C")
 print(f"Самая низкая температура среди жарких дней: {min(hot_days_list)}°C")
 print(f"Средняя температура среди жарких дней: "
-      f"{round(sum(hot_days_list) / len(hot_days_list),2)}°C")
+      f"{round(sum(hot_days_list) / len(hot_days_list), 2)}°C")
