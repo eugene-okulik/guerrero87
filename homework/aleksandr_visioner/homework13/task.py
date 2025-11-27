@@ -1,6 +1,10 @@
 import datetime
+import os
 
-file_path = '../../eugene_okulik/hw_13/data.txt'
+script_dir = os.path.dirname(os.path.abspath(__file__))
+root_dir = os.path.dirname(os.path.dirname(os.path.dirname(script_dir)))
+file_path = os.path.join(root_dir, "homework", "eugene_okulik", "hw_13",
+                         "data.txt")
 
 with open(file_path, 'r', encoding='utf-8') as file:
     for line in file:
