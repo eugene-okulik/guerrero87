@@ -93,9 +93,8 @@ class ApplicationRunner:
         self.logger.info(f"Создан студент с ID: {student_id}")
 
         # 2. Создаем книги
-        for book_title in books_data:
-            book_id = self.student_system.create_book(book_title, student_id)
-            self.logger.info(f"Создана книга с ID: {book_id}")
+        self.student_system.create_books(books_data, student_id)
+        self.logger.info(f"Созданы книги: {', '.join(books_data)}")
 
         # 3. Создаем группу и обновляем студента
         group_id = self.student_system.create_group(*group_data)

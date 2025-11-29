@@ -15,12 +15,14 @@ class StudentManagementSystem:
                  "VALUES (%s, %s, NULL)")
         return self.db.execute_query(query, data=(name, second_name))
 
-    def create_book(self, title, student_id):
-        self.validator.validate_book_title(title)
+    def create_books(self, book_titles, student_id):
+        for title in book_titles:
+            self.validator.validate_book_title(title)
 
         query = ("INSERT INTO books (title, taken_by_student_id) "
                  "VALUES (%s, %s)")
-        return self.db.execute_query(query, data=(title, student_id))
+        data_list = [(title, student_id) for title in book_titles]
+        self.db.execute_queries_many(query, data_list)
 
     def create_group(self, title, start_date, end_date):
         self.validator.validate_not_empty_string(title,
