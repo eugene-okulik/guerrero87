@@ -81,10 +81,10 @@ def get_context(text, pos, search_len):
     context = text[start_boundary:end_boundary].strip()
 
     marked_pos = pos - start_boundary
-    marked_context = (context[:marked_pos] +
-                      f"{Fore.RED}{Style.BRIGHT}"
-                      f"{text[pos:pos + search_len]}{Style.RESET_ALL}" +
-                      context[marked_pos + search_len:])
+    marked_context = (context[:marked_pos]
+                      + f"{Fore.RED}{Style.BRIGHT}"
+                        f"{text[pos:pos + search_len]}{Style.RESET_ALL}"
+                      + context[marked_pos + search_len:])
 
     return marked_context
 
