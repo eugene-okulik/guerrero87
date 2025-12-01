@@ -145,8 +145,8 @@ def update_object():
         assert response_json["data"]["color"] == request_body["data"][
             "color"], \
             (
-                f"FAILED: Ожидался цвет '{request_body["data"]["color"]}', "
-                f"получено '{response_json["data"]["color"]}'")
+                f"FAILED: Ожидался цвет '{request_body['data']['color']}', "
+                f"получено '{response_json['data']['color']}'")
         print("Проверка 2: Цвет соответствует отправленному - PASSED")
 
         print("--- Все проверки завершены успешно ---\r\n")
