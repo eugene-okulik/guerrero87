@@ -194,8 +194,8 @@ def patch_object():
         assert response_json["data"]["size"] == request_body["data"][
             "size"], \
             (
-                f"FAILED: Ожидался цвет '{request_body["data"]["size"]}', "
-                f"получено '{response_json["data"]["size"]}'")
+                f"FAILED: Ожидался цвет '{request_body['data']['size']}', "
+                f"получено '{response_json['data']['size']}'")
         print("Проверка 2: Размер соответствует отправленному - PASSED")
 
         print("--- Все проверки завершены успешно ---\r\n")
