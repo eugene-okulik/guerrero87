@@ -93,7 +93,8 @@ def test_create_new_object(object_name):
                       attachment_type=allure.attachment_type.JSON)
 
     with allure.step(
-            f"Отправка POST запроса на создание объекта с именем: {object_name}"):
+            f"Отправка POST запроса на создание объекта с именем:"
+            f" {object_name}"):
         response = api_create_object(new_data)
 
     with allure.step("Проверка статус кода создания (Status Code 200)"):
@@ -116,7 +117,8 @@ def test_get_object_by_id(object_id_fixture):
 
     with allure.step("Валидация полученных данных объекта"):
         assert response_json['id'] == object_id
-        assert response_json['name'] == object_id_fixture['request_body']['name']
+        assert response_json['name'] == object_id_fixture['request_body'][
+            'name']
         assert response_json['data']['color'] == object_id_fixture[
             'request_body']['data']['color']
 
@@ -144,7 +146,7 @@ def test_update_object_put(object_id_fixture):
 @allure.feature('Test POST')
 @allure.story('Update an object')
 @allure.description('Обновление методом PATCH')
-@allure.issue('JIRA-123','JIRA-123')
+@allure.issue('JIRA-123', 'JIRA-123')
 def test_update_object_patch(object_id_fixture):
     object_id = object_id_fixture['id']
     new_data = create_fake_data()
@@ -171,8 +173,8 @@ def test_delete_object(object_id_fixture):
     with allure.step("Проверка статус кода удаления (Status Code 200)"):
         assert response.status_code == 200
 
-    with allure.step(
-            f"Повторная попытка получить объект {object_id} для проверки его отсутствия"):
+    with allure.step(f"Повторная попытка получить объект {object_id} для "
+                     f"проверки его отсутствия"):
         get_response = api_get_object(object_id)
         assert get_response.status_code == 404
         print("Повторный GET запрос вернул 404 (Not Found) как ожидалось.")
