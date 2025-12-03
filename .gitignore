@@ -7,3 +7,5 @@ __pycache__
 credentials.py
 .env
 logging.conf
+allure-report
+allure-results
