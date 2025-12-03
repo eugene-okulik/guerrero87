@@ -100,7 +100,7 @@ class TestObjectCRUD:
     @allure.title('Удаление и проверка отсутствия объекта')
     @pytest.mark.critical
     def test_delete_object(self, test_object_fixture,
-                           delete_object_endpoint):
+                           delete_object_endpoint, get_object_endpoint):
         object_id = test_object_fixture['id']
 
         allure.attach(f"Создан объект для удаления: {object_id}",
@@ -109,3 +109,6 @@ class TestObjectCRUD:
 
         delete_object_endpoint.delete_object(object_id)
         delete_object_endpoint.check_that_status_is_200()
+        # Дополнительная проверка на получение 404 кода после удаления
+        get_object_endpoint.get_object_by_id(object_id)
+        get_object_endpoint.check_that_status_is_404()
