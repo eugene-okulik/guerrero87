@@ -18,11 +18,11 @@ class TestObjectCRUD:
     def test_create_new_object(self, create_object_endpoint, object_name):
         new_data = create_fake_data()
         new_data['name'] = object_name
+        create_object_endpoint.create_new_object(new_data)
+
         allure.attach(str(new_data),
                       name="Сгенерированные данные",
                       attachment_type=allure.attachment_type.JSON)
-
-        create_object_endpoint.create_new_object(new_data)
 
         create_object_endpoint.check_that_status_is_200()
         create_object_endpoint.check_response_id_is_correct()
@@ -55,7 +55,7 @@ class TestObjectCRUD:
     @allure.title('Полное обновление объекта')
     @pytest.mark.critical
     def test_update_object_put(self, test_object_fixture,
-                               update_object_endpoint, get_object_endpoint):
+                               update_object_endpoint):
         object_id = test_object_fixture['id']
         new_data = create_fake_data()
         update_object_endpoint.update_object(object_id, new_data, method='PUT')
@@ -99,13 +99,9 @@ class TestObjectCRUD:
     @allure.story('Удаление объекта')
     @allure.title('Удаление и проверка отсутствия объекта')
     @pytest.mark.critical
-    def test_delete_object(self, create_object_endpoint,
-                           delete_object_endpoint,
-                           get_object_endpoint):
-        new_data = create_fake_data()
-
-        create_object_endpoint.create_new_object(new_data)
-        object_id = create_object_endpoint.json.get('id')
+    def test_delete_object(self, test_object_fixture,
+                           delete_object_endpoint):
+        object_id = test_object_fixture['id']
 
         allure.attach(f"Создан объект для удаления: {object_id}",
                       name="ID объекта",
