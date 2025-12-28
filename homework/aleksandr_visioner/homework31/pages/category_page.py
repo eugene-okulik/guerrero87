@@ -1,5 +1,6 @@
 from playwright.sync_api import expect
-import allure, re
+import allure
+import re
 from pages.base_page import BasePage
 from pages.locators.category_locators import CategoryLocators as Loc
 from pages.locators.cart_locators import CartLocators as CartLoc

@@ -26,5 +26,5 @@ class CartPage(BasePage):
         self.find(Loc.CART_CONTINUE_SHOPPING_PAGE_BTN).first.click(force=True)
 
     def verify_item_in_cart_by_name(self, name: str):
-        expect(self.find(Loc.CART_ITEM_NAMES).first).to_contain_text(name,
-                                                                     ignore_case=True)
+        first_item = self.find(Loc.CART_ITEM_NAMES).first
+        expect(first_item).to_contain_text(name, ignore_case=True)

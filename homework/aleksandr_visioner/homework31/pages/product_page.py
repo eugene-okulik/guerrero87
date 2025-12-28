@@ -23,7 +23,8 @@ class ProductPage(BasePage):
         expect(self.find(Loc.PRODUCT_IMAGE).first).to_be_visible()
 
     def change_quantity(self, increase: bool = True):
-        selector = Loc.PRODUCT_INCREASE_QUANTITY if increase else Loc.PRODUCT_DECREASE_QUANTITY
+        selector = Loc.PRODUCT_INCREASE_QUANTITY if increase else (
+            Loc.PRODUCT_DECREASE_QUANTITY)
         self.find(selector).first.click(force=True)
 
     def verify_quantity_is_one(self):
