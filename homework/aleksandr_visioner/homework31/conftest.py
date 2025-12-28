@@ -14,12 +14,15 @@ def page(context: BrowserContext):
 
 
 @pytest.fixture()
-def cart_page(page): return CartPage(page)
+def cart_page(page):
+    return CartPage(page)
 
 
 @pytest.fixture()
-def category_page(page): return CategoryPage(page)
+def category_page(page):
+    return CategoryPage(page)
 
 
 @pytest.fixture()
-def product_page(page): return ProductPage(page)
+def product_page(page):
+    return ProductPage(page)
