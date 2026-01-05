@@ -1,0 +1,21 @@
+Задание 1:
+Go to first line in file: g
+Go to last line in file: G
+Forward one window: f (или Space)
+Forward one line: e (или j, или Enter)
+Backward one line: y (или k, или Control+Y)
+Search forward for matching line: /pattern
+Search backward for matching line: ?pattern
+Repeat previous search: n
+Repeat previous search in reverse direction: N
+
+Задание 2:
+1.  /dev/null      - character special file (символьное устройство)
+2.  /dev/zero      - character special file (символьное устройство)
+3.  /dev/vda       - block special file (блочное устройство, аналог sda в облаке)
+4.  /dev/tty       - character special file (символьное устройство терминала)
+5.  /root          - directory (директория суперпользователя)
+6.  /etc/passwd    - regular file (обычный текстовый файл)
+7.  /proc/mounts   - symbolic link (символическая ссылка)
+8.  /bin/ls        - regular file (обычный исполняемый файл)
+9.  /bin/zcat      - regular file (обычный исполняемый файл)
